@@ -6,6 +6,7 @@ import { useState } from 'react';
 const AddBookmark = () => {
      const [title, setTitle] = useState("");
      const [url, setUrl] = useState("");
+     const [loading, setLoading] = useState(false);
      
 
      
@@ -13,6 +14,7 @@ const AddBookmark = () => {
      
 
     const handleSubmit = async (e: React.FormEvent) => {
+      setLoading(true);
         e.preventDefault();
        console.log("title:", title);
        console.log("url:", url);
@@ -24,6 +26,7 @@ const AddBookmark = () => {
       },
       body: JSON.stringify({ title, url }),
     });
+    setLoading(false);
     }
     
   return (
@@ -36,6 +39,7 @@ const AddBookmark = () => {
          className="text-white border border-black rounded-2xl py-2 px-4 md:py-1 md:px-2 bg-blue-950 hover:bg-blue-800"> 
          Add Bookmark
          </button>
+         {loading && <p className="text-blue-950">Adding bookmark...plz wait</p>}
        </form>
       </div>
   )
