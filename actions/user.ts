@@ -16,3 +16,9 @@ export async function getUserByEmail() {
     where: { email },
   });
 }
+
+export async function deleteBookmark(id : string ) {
+  return prisma.bookmark.delete({
+    where: { id },
+  });
+}

@@ -2,6 +2,7 @@
 import { getUserByEmail } from "@/actions/user";
 import AddBookmark from "@/components/AddBookmark";
 import BookmarkCard from "@/components/BookmarkCard";
+import DisplayAllBookmark from "@/components/DisplayAllBookmark";
 import { getServerSession } from "next-auth"
 import Link from "next/link";
 
@@ -25,21 +26,8 @@ export default async function Home() {
     session && <div className="p-6">
       <AddBookmark/>
       <label htmlFor="" className="font-extrabold text-black my-100 mx-4">All Bookmarks:</label>
-      <div className="md:flex md:flex-wrap ">
-        <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
-      <BookmarkCard/>
+      <div className=" ">
+        <DisplayAllBookmark/>
       </div>
     </div>
    }
