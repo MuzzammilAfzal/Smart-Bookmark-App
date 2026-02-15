@@ -11,7 +11,7 @@ export default async function Home() {
   
 
   return (
-   <>
+   <div className="p-2 m-1">
    {
     !session && <div className="w-full  flex  items-center justify-center mt-10 ">
      <span className="text-black">Please sign in to access the app.</span>
@@ -31,6 +31,6 @@ export default async function Home() {
       </div>
     </div>
    }
-   </>
+   </div>
   );
 }
