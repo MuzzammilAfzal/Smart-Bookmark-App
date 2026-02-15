@@ -13,7 +13,7 @@ const BookmarkCard = (props : {id: string , title: string, url: string, createdA
         
         <span> <span className='font-extrabold'>title:</span> {props.title}</span>
         <span className='break-all'> <span className='font-extrabold'>URL:</span> {props.url} 
-        <Link href={props.url}  target="_blank"  >Open URL</Link>
+        <Link href={props.url}  target="_blank" className='text-center rounded-2xl bg-blue-800 text-white p-2 m-2 hover:bg-blue-600'  >Open URL</Link>
         </span>
         <span><span className='font-extrabold'>Time created:</span> {props.createdAt}</span>
         <button className='bg-red-500 w-1/3 text-center rounded-2xl hover:bg-red-700'
