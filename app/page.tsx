@@ -1,10 +1,14 @@
 
+import { getUserByEmail } from "@/actions/user";
+import AddBookmark from "@/components/AddBookmark";
 import BookmarkCard from "@/components/BookmarkCard";
 import { getServerSession } from "next-auth"
 import Link from "next/link";
 
 export default async function Home() {
   const session = await getServerSession();
+  
+
   return (
    <>
    {
@@ -19,14 +23,7 @@ export default async function Home() {
    }
    {
     session && <div className="p-6">
-      <div className="text-black py-4 px-8 border-2 border-black rounded-3xl shadow-2xl w-100% md:w-90">
-       <form action="">
-        <label htmlFor="" className="p-1 font-bold">Enter Details</label>
-        <input type="text"  placeholder="Enter bookmark title" className="p-1 border border-black rounded-2xl my-1"/>
-        <input type="url" placeholder="Enter bookmark URL" className="p-1 border border-black rounded-2xl my-1" />
-        <button className="text-white border border-black rounded-2xl py-2 px-4 md:py-1 md:px-2 bg-blue-950 hover:bg-blue-800"> Add Bookmark</button>
-       </form>
-      </div>
+      <AddBookmark/>
       <label htmlFor="" className="font-extrabold text-black my-100 mx-4">All Bookmarks:</label>
       <div className="md:flex md:flex-wrap ">
         <BookmarkCard/>

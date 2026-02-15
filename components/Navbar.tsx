@@ -6,7 +6,7 @@ const Navbar = async () => {
 
    
       const session = await getServerSession();
-      console.log(session);
+
 
      
        const Logout =() =>{
