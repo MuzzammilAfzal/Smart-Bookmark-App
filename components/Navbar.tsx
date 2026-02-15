@@ -11,9 +11,10 @@ const Navbar = async () => {
      
        const Logout =() =>{
         return(
-        <button className="text-white border border-white rounded-2xl m-2 py-0.5 px-1  md:py-1 md:px-2  hover:bg-blue-400 ">
-         <Link href={"/api/auth/signout"}>SignOut</Link>     
-        </button>
+       
+         <Link href={"/api/auth/signout"} >
+              <button className="text-white border border-white rounded-2xl m-2 py-0.5 px-1  md:py-1 md:px-2  hover:bg-blue-400 ">Signout</button>
+         </Link>     
         )
       }
 
