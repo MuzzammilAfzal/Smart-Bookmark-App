@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Bookmark App
 
-## Getting Started
+A simple bookmark manager that allows users to securely save and manage personal bookmarks with real-time updates.
 
-First, run the development server:
+## Problems & how it was solved 
+The Only real problem was getting real time updates of bookmark added and deleted and was solved using 
+supabase websockets (websockets = two way connection between two IP address initialized by http connection but upgrades connection into TCP) . these web sockets of supabase continously looks for any change for specified Table . if any change insertion or deletion or update in any element sends payload with new table data.
 
-```bash
+## other problem
+As only google was authentication provider ...so skipped the registration part ...if user email is not present in database then create new user and login in.....solved this to avoid un-necessary registeration as google data was only data to be added into registration form.
+
+## Features
+
+* Google OAuth login
+* Add and delete bookmarks (URL + title)
+* User-private bookmarks 
+* Real-time updates across browser tabs
+* Deployed on Vercel
+
+## Tech Stack
+
+* Next.js
+* Supabase 
+* Prisma ORM
+* Tailwind CSS
+* Vercel (deployment)
+
+
+
+## Setup
+
+Install dependencies:
+npm install
+
+Generate Prisma client:
+npx prisma generate
+
+Run locally:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Environment variables were configured in Vercel and Supabase.
+Google OAuth redirect URLs were added for both local and production environments.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+This project demonstrates authentication, database security with RLS, realtime updates, and full-stack deployment using modern web tools.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
