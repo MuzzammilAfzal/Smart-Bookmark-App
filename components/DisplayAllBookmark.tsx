@@ -8,6 +8,7 @@ import { getUserByEmail } from "@/actions/user";
 const DisplayAllBookmark = () => {
     const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
     const [USER, setUSER] = useState<any>(null);
+    const [loading, setLoading] = useState(false);
 
   type Bookmark = {
   id: string;
@@ -20,6 +21,7 @@ const DisplayAllBookmark = () => {
 
 
    useEffect(() => {
+    setLoading(true);
   let channel: any;
 
   const init = async () => {
@@ -35,7 +37,7 @@ const DisplayAllBookmark = () => {
       .eq("userId", user.id);
 
     if (data) setBookmarks(data);
-
+     setLoading(false);
     
     channel = supabase
       .channel("bookmarks-channel")
@@ -77,7 +79,7 @@ const DisplayAllBookmark = () => {
 
   return (
     <div className="md:flex md:flex-wrap">
-        
+        {loading && <p className="text-blue-950">Loading bookmarks...plz wait</p>}
         {bookmarks.map((e) => (
           <BookmarkCard key={e.id} id={e.id} title={e.title} url={e.url} createdAt={e.createdAt} />
         ))}
